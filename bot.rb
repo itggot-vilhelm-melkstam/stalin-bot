@@ -6,4 +6,8 @@ bot.message(with_text: 'Ping!') do |event|
   event.respond 'Pong!'
 end
 
+bot.message(with_text: 'meme') do |event|
+  event.channel.send_file File.new(Dir.glob("./memes/*").sample)
+end
+
 bot.run
