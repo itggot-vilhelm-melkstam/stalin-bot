@@ -7,7 +7,13 @@ bot.message(containing: 'kapitalism') do |event|
 end
 
 bot.message(with_text: 'meme') do |event|
+	event.respond "Here's a communist meme for everyone!"
   event.channel.send_file File.new(Dir.glob("./memes/*").sample)
+end
+
+bot.message(with_text: 'funfact') do |event|
+	fun_facts = File.read("fun_facts.txt").split(/$^$/)
+	event.respond fun_facts.sample
 end
 
 bot.run
